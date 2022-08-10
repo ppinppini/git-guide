@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Main from "./components/Main";
+import Question from "./components/Question";
 
 function App() {
+  const [phase, setPhase] = useState(1);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {phase === 1 && <Main setPhase={setPhase} />}
+      {phase === 2 && <Question />}
+      {phase === 3 && <div>3</div>}
     </div>
   );
 }
